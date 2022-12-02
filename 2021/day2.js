@@ -1009,7 +1009,7 @@ let forward = 0;
 let depth = 0;
 let aim = 0;
 
-for (val of input) {
+for (const val of input) {
 	const splitVal = val.split(" ");
 	if (splitVal[0] === "forward") {
 		forward += parseInt(splitVal[1]);

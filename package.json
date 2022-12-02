@@ -1,0 +1,17 @@
+{
+  "name": "advent-of-code",
+  "version": "1.0.0",
+  "repository": "https://github.com/cdleveille/advent-of-code.git",
+  "author": "Chris Leveille <cdleveille@gmail.com>",
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx . && prettier --check .",
+    "format": "eslint --fix --ext .js,.jsx,.ts,.tsx . && prettier --write ."
+  },
+  "devDependencies": {
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.2",
+    "prettier": "^2.8.0"
+  }
+}

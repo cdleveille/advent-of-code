@@ -1,4 +1,17 @@
-const testInput = ["00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", "10000", "11001", "00010", "01010"];
+const testInput = [
+	"00100",
+	"11110",
+	"10110",
+	"10111",
+	"10101",
+	"01111",
+	"00111",
+	"11100",
+	"10000",
+	"11001",
+	"00010",
+	"01010"
+];
 
 const realInput = [
 	"010111111011",
@@ -1030,7 +1043,7 @@ for (let i = 0; i < input[0].length; i++) {
 	}
 }
 
-const binaryToDecimal = (binary) => {
+const binaryToDecimal = binary => {
 	let sum = 0;
 	let factor;
 
