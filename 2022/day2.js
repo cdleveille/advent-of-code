@@ -1,21 +1,30 @@
 import { day2Input as input } from "./input.js";
 
+const points = {
+	win: 6,
+	draw: 3,
+	loss: 0,
+	rock: 1,
+	paper: 2,
+	scissors: 3
+};
+
 // part 1
 const gameResultPart1 = {
-	AX: 3,
-	AY: 6,
-	AZ: 0,
-	BX: 0,
-	BY: 3,
-	BZ: 6,
-	CX: 6,
-	CY: 0,
-	CZ: 3
+	AX: points.draw,
+	AY: points.win,
+	AZ: points.loss,
+	BX: points.loss,
+	BY: points.draw,
+	BZ: points.win,
+	CX: points.win,
+	CY: points.loss,
+	CZ: points.draw
 };
 const yourMovePart1 = {
-	X: 1,
-	Y: 2,
-	Z: 3
+	X: points.rock,
+	Y: points.paper,
+	Z: points.scissors
 };
 const pointsPart1 = input.reduce((total, game) => {
 	total += gameResultPart1[game] + yourMovePart1[game[1]];
@@ -25,26 +34,26 @@ console.log(`Part 1: ${pointsPart1}`);
 
 // part 2
 const gameResultPart2 = {
-	AX: 0,
-	AY: 3,
-	AZ: 6,
-	BX: 0,
-	BY: 3,
-	BZ: 6,
-	CX: 0,
-	CY: 3,
-	CZ: 6
+	AX: points.loss,
+	AY: points.draw,
+	AZ: points.win,
+	BX: points.loss,
+	BY: points.draw,
+	BZ: points.win,
+	CX: points.loss,
+	CY: points.draw,
+	CZ: points.win
 };
 const yourMovePart2 = {
-	AX: 3,
-	AY: 1,
-	AZ: 2,
-	BX: 1,
-	BY: 2,
-	BZ: 3,
-	CX: 2,
-	CY: 3,
-	CZ: 1
+	AX: points.scissors,
+	AY: points.rock,
+	AZ: points.paper,
+	BX: points.rock,
+	BY: points.paper,
+	BZ: points.scissors,
+	CX: points.paper,
+	CY: points.scissors,
+	CZ: points.rock
 };
 const pointsPart2 = input.reduce((total, game) => {
 	total += gameResultPart2[game] + yourMovePart2[game];
