@@ -7,6 +7,10 @@
     "commonjs": true
   },
   "extends": ["eslint:recommended", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
   "rules": {
     "quotes": ["warn", "double"],
     "semi": ["warn", "always"],

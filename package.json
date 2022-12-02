@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "repository": "https://github.com/cdleveille/advent-of-code.git",
   "author": "Chris Leveille <cdleveille@gmail.com>",
+  "type": "module",
   "scripts": {
     "prepare": "husky install",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx . && prettier --check .",
