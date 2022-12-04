@@ -12,22 +12,11 @@ export const day4 = () => {
 		const [leftRange, rightRange] = rangePair.split(",");
 		const [leftRangeMin, leftRangeMax] = leftRange.split("-").map(val => parseInt(val));
 		const [rightRangeMin, rightRangeMax] = rightRange.split("-").map(val => parseInt(val));
-		let rightContainsLeft = true;
-		for (let n = leftRangeMin; n <= leftRangeMax; n++) {
-			if (!isInRange(n, rightRangeMin, rightRangeMax)) {
-				rightContainsLeft = false;
-				break;
-			}
-		}
-		if (rightContainsLeft) return count + 1;
-		let leftContainsRight = true;
-		for (let n = rightRangeMin; n <= rightRangeMax; n++) {
-			if (!isInRange(n, leftRangeMin, leftRangeMax)) {
-				leftContainsRight = false;
-				break;
-			}
-		}
-		if (leftContainsRight) return count + 1;
+		if (
+			(leftRangeMin >= rightRangeMin && leftRangeMax <= rightRangeMax) ||
+			(rightRangeMin >= leftRangeMin && rightRangeMax <= leftRangeMax)
+		)
+			return count + 1;
 		return count;
 	}, 0);
 	console.log(`Part 1: ${part1Count}`);
@@ -37,11 +26,13 @@ export const day4 = () => {
 		const [leftRange, rightRange] = rangePair.split(",");
 		const [leftRangeMin, leftRangeMax] = leftRange.split("-").map(val => parseInt(val));
 		const [rightRangeMin, rightRangeMax] = rightRange.split("-").map(val => parseInt(val));
-		for (let n = leftRangeMin; n <= leftRangeMax; n++) {
-			if (isInRange(n, rightRangeMin, rightRangeMax)) {
-				return count + 1;
-			}
-		}
+		if (
+			isInRange(leftRangeMin, rightRangeMin, rightRangeMax) ||
+			isInRange(leftRangeMax, rightRangeMin, rightRangeMax) ||
+			isInRange(rightRangeMin, leftRangeMin, leftRangeMax) ||
+			isInRange(rightRangeMax, leftRangeMin, leftRangeMax)
+		)
+			return count + 1;
 		return count;
 	}, 0);
 	console.log(`Part 2: ${part2Count}`);
