@@ -30,8 +30,7 @@ export const day2 = () => {
 		Z: points.scissors
 	};
 	const pointsPart1 = day2Input.reduce((total, game) => {
-		total += gameResultPart1[game] + yourMovePart1[game[1]];
-		return total;
+		return total + gameResultPart1[game] + yourMovePart1[game[1]];
 	}, 0);
 	console.log(`Part 1: ${pointsPart1}`);
 
@@ -59,8 +58,7 @@ export const day2 = () => {
 		CZ: points.rock
 	};
 	const pointsPart2 = day2Input.reduce((total, game) => {
-		total += gameResultPart2[game] + yourMovePart2[game];
-		return total;
+		return total + gameResultPart2[game] + yourMovePart2[game];
 	}, 0);
 	console.log(`Part 2: ${pointsPart2}`);
 };

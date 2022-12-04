@@ -12,18 +12,22 @@ export const day4 = () => {
 			const [leftRange, rightRange] = rangePair.split(",");
 			const [leftRangeMin, leftRangeMax] = leftRange.split("-").map(val => parseInt(val));
 			const [rightRangeMin, rightRangeMax] = rightRange.split("-").map(val => parseInt(val));
+
+			// part 1 (either range completely contains the other)
 			if (
 				(leftRangeMin >= rightRangeMin && leftRangeMax <= rightRangeMax) ||
 				(rightRangeMin >= leftRangeMin && rightRangeMax <= leftRangeMax)
 			)
-				count.part1Count += 1;
+				count.part1Count++;
+
+			// part 2 (any range overlap)
 			if (
 				isInRange(leftRangeMin, rightRangeMin, rightRangeMax) ||
 				isInRange(leftRangeMax, rightRangeMin, rightRangeMax) ||
 				isInRange(rightRangeMin, leftRangeMin, leftRangeMax) ||
 				isInRange(rightRangeMax, leftRangeMin, leftRangeMax)
 			)
-				count.part2Count += 1;
+				count.part2Count++;
 			return count;
 		},
 		{ part1Count: 0, part2Count: 0 }
