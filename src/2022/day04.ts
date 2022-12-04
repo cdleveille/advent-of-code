@@ -1,25 +1,41 @@
 import { Day } from "../types";
+import { Runtime } from "../util";
 import { day04Input } from "./input";
 
 export default (() => {
+	Runtime.start("partOne");
+	// part 1
 	const isInRange = (value: number, min: number, max: number) => {
 		return value >= min && value <= max;
 	};
 
-	const { partOneAnswer, partTwoAnswer } = day04Input.reduce(
+	const { partOneAnswer } = day04Input.reduce(
 		(count, rangePair) => {
 			const [leftRange, rightRange] = rangePair.split(",");
 			const [leftRangeMin, leftRangeMax] = leftRange.split("-").map(val => parseInt(val));
 			const [rightRangeMin, rightRangeMax] = rightRange.split("-").map(val => parseInt(val));
 
-			// part 1 (either range completely contains the other)
+			// either range completely contains the other
 			if (
 				(leftRangeMin >= rightRangeMin && leftRangeMax <= rightRangeMax) ||
 				(rightRangeMin >= leftRangeMin && rightRangeMax <= leftRangeMax)
 			)
 				count.partOneAnswer++;
+			return count;
+		},
+		{ partOneAnswer: 0 }
+	);
+	const partOneRuntime = Runtime.end("partOne");
 
-			// part 2 (any range overlap)
+	Runtime.start("partTwo");
+	// part 2
+	const { partTwoAnswer } = day04Input.reduce(
+		(count, rangePair) => {
+			const [leftRange, rightRange] = rangePair.split(",");
+			const [leftRangeMin, leftRangeMax] = leftRange.split("-").map(val => parseInt(val));
+			const [rightRangeMin, rightRangeMax] = rightRange.split("-").map(val => parseInt(val));
+
+			// any range overlap
 			if (
 				isInRange(leftRangeMin, rightRangeMin, rightRangeMax) ||
 				isInRange(leftRangeMax, rightRangeMin, rightRangeMax) ||
@@ -29,8 +45,8 @@ export default (() => {
 				count.partTwoAnswer++;
 			return count;
 		},
-		{ partOneAnswer: 0, partTwoAnswer: 0 }
+		{ partTwoAnswer: 0 }
 	);
-
-	return { partOneAnswer, partTwoAnswer };
+	const partTwoRuntime = Runtime.end("partTwo");
+	return { partOneAnswer, partTwoAnswer, partOneRuntime, partTwoRuntime };
 }) as Day;

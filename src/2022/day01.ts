@@ -1,7 +1,9 @@
 import { Day } from "../types";
+import { Runtime } from "../util";
 import { day01Input } from "./input";
 
 export default (() => {
+	Runtime.start("partOne");
 	// part 1
 	const partOneAnswer = day01Input.reduce((acc, list) => {
 		const listTotal = list.reduce((acc, item) => {
@@ -10,7 +12,9 @@ export default (() => {
 		if (listTotal > acc) acc = listTotal;
 		return acc;
 	}, 0);
+	const partOneRuntime = Runtime.end("partOne");
 
+	Runtime.start("partTwo");
 	// part 2
 	const partTwoAnswer = day01Input
 		.reduce(
@@ -35,6 +39,7 @@ export default (() => {
 		.reduce((acc, total) => {
 			return acc + total;
 		}, 0);
+	const partTwoRuntime = Runtime.end("partTwo");
 
-	return { partOneAnswer, partTwoAnswer };
+	return { partOneAnswer, partTwoAnswer, partOneRuntime, partTwoRuntime };
 }) as Day;

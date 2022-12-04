@@ -1,8 +1,10 @@
 export type Day = () => IDay;
 
 export interface IDay {
-	partOneAnswer: any;
-	partTwoAnswer: any;
+	partOneAnswer: number | string | null;
+	partTwoAnswer: number | string | null;
+	partOneRuntime: number;
+	partTwoRuntime: number;
 }
 
 export interface IYear {
