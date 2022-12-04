@@ -1,4 +1,4 @@
-import { day2Input as input } from "./input";
+import { day2Input } from "./input";
 
 export const day2 = () => {
 	console.log("\nDay 2");
@@ -29,7 +29,7 @@ export const day2 = () => {
 		Y: points.paper,
 		Z: points.scissors
 	};
-	const pointsPart1 = input.reduce((total, game) => {
+	const pointsPart1 = day2Input.reduce((total, game) => {
 		total += gameResultPart1[game] + yourMovePart1[game[1]];
 		return total;
 	}, 0);
@@ -58,7 +58,7 @@ export const day2 = () => {
 		CY: points.scissors,
 		CZ: points.rock
 	};
-	const pointsPart2 = input.reduce((total, game) => {
+	const pointsPart2 = day2Input.reduce((total, game) => {
 		total += gameResultPart2[game] + yourMovePart2[game];
 		return total;
 	}, 0);

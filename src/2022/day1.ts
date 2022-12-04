@@ -1,10 +1,10 @@
-import { day1Input as input } from "./input";
+import { day1Input } from "./input";
 
 export const day1 = () => {
 	console.log("\nDay 1");
 
 	// part 1
-	const part1Total = input.reduce((acc, list) => {
+	const part1Total = day1Input.reduce((acc, list) => {
 		const listTotal = list.reduce((acc, item) => {
 			return acc + item;
 		}, 0);
@@ -14,7 +14,7 @@ export const day1 = () => {
 	console.log(`Part 1: ${part1Total}`);
 
 	// part 2
-	const part2Total = input
+	const part2Total = day1Input
 		.reduce(
 			(acc, list) => {
 				const listTotal = list.reduce((acc, item) => {
