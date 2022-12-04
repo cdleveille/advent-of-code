@@ -1,20 +1,18 @@
+import { Day } from "../types";
 import { day1Input } from "./input";
 
-export const day1 = () => {
-	console.log("\nDay 1");
-
+export const day1: Day = () => {
 	// part 1
-	const part1Total = day1Input.reduce((acc, list) => {
+	const partOneAnswer = day1Input.reduce((acc, list) => {
 		const listTotal = list.reduce((acc, item) => {
 			return acc + item;
 		}, 0);
 		if (listTotal > acc) acc = listTotal;
 		return acc;
 	}, 0);
-	console.log(`Part 1: ${part1Total}`);
 
 	// part 2
-	const part2Total = day1Input
+	const partTwoAnswer = day1Input
 		.reduce(
 			(acc, list) => {
 				const listTotal = list.reduce((acc, item) => {
@@ -37,5 +35,6 @@ export const day1 = () => {
 		.reduce((acc, total) => {
 			return acc + total;
 		}, 0);
-	console.log(`Part 2: ${part2Total}`);
+
+	return { partOneAnswer, partTwoAnswer };
 };

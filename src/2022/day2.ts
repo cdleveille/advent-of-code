@@ -1,8 +1,7 @@
+import { Day } from "../types";
 import { day2Input } from "./input";
 
-export const day2 = () => {
-	console.log("\nDay 2");
-
+export const day2: Day = () => {
 	const points: Record<string, number> = {
 		win: 6,
 		draw: 3,
@@ -29,10 +28,9 @@ export const day2 = () => {
 		Y: points.paper,
 		Z: points.scissors
 	};
-	const pointsPart1 = day2Input.reduce((total, game) => {
+	const partOneAnswer = day2Input.reduce((total, game) => {
 		return total + gameResultPart1[game] + yourMovePart1[game[1]];
 	}, 0);
-	console.log(`Part 1: ${pointsPart1}`);
 
 	// part 2
 	const gameResultPart2: Record<string, number> = {
@@ -57,8 +55,9 @@ export const day2 = () => {
 		CY: points.scissors,
 		CZ: points.rock
 	};
-	const pointsPart2 = day2Input.reduce((total, game) => {
+	const partTwoAnswer = day2Input.reduce((total, game) => {
 		return total + gameResultPart2[game] + yourMovePart2[game];
 	}, 0);
-	console.log(`Part 2: ${pointsPart2}`);
+
+	return { partOneAnswer, partTwoAnswer };
 };

@@ -1,13 +1,12 @@
+import { Day } from "../types";
 import { day4Input } from "./input";
 
-export const day4 = () => {
-	console.log("\nDay 4");
-
+export const day4: Day = () => {
 	const isInRange = (value: number, min: number, max: number) => {
 		return value >= min && value <= max;
 	};
 
-	const { part1Count, part2Count } = day4Input.reduce(
+	const { partOneAnswer, partTwoAnswer } = day4Input.reduce(
 		(count, rangePair) => {
 			const [leftRange, rightRange] = rangePair.split(",");
 			const [leftRangeMin, leftRangeMax] = leftRange.split("-").map(val => parseInt(val));
@@ -18,7 +17,7 @@ export const day4 = () => {
 				(leftRangeMin >= rightRangeMin && leftRangeMax <= rightRangeMax) ||
 				(rightRangeMin >= leftRangeMin && rightRangeMax <= leftRangeMax)
 			)
-				count.part1Count++;
+				count.partOneAnswer++;
 
 			// part 2 (any range overlap)
 			if (
@@ -27,10 +26,11 @@ export const day4 = () => {
 				isInRange(rightRangeMin, leftRangeMin, leftRangeMax) ||
 				isInRange(rightRangeMax, leftRangeMin, leftRangeMax)
 			)
-				count.part2Count++;
+				count.partTwoAnswer++;
 			return count;
 		},
-		{ part1Count: 0, part2Count: 0 }
+		{ partOneAnswer: 0, partTwoAnswer: 0 }
 	);
-	console.log(`Part 1: ${part1Count}\nPart 2: ${part2Count}`);
+
+	return { partOneAnswer, partTwoAnswer };
 };
