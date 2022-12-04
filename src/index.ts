@@ -1,12 +1,14 @@
-import { year2022 } from "./2022";
+import year2022 from "./2022";
+import { isValidAnswer } from "./util";
 
 const years = [year2022];
 
 years.map(year => {
-	console.log(`\n---------- ${year.label} ----------\n`);
+	console.log(`\n---------- ${year.label} ----------`);
 	year.days.map((day, i) => {
-		console.log(`Day ${i + 1}`);
 		const { partOneAnswer, partTwoAnswer } = day();
-		console.log(`Part 1: ${partOneAnswer}\nPart 2: ${partTwoAnswer}\n`);
+		if (isValidAnswer({ partOneAnswer, partTwoAnswer }))
+			console.log(`Day ${i + 1}: { Part 1: ${partOneAnswer}, Part 2: ${partTwoAnswer} }`);
 	});
+	console.log("");
 });

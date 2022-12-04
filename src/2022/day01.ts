@@ -1,9 +1,9 @@
 import { Day } from "../types";
-import { day1Input } from "./input";
+import { day01Input } from "./input";
 
-export const day1: Day = () => {
+export default (() => {
 	// part 1
-	const partOneAnswer = day1Input.reduce((acc, list) => {
+	const partOneAnswer = day01Input.reduce((acc, list) => {
 		const listTotal = list.reduce((acc, item) => {
 			return acc + item;
 		}, 0);
@@ -12,7 +12,7 @@ export const day1: Day = () => {
 	}, 0);
 
 	// part 2
-	const partTwoAnswer = day1Input
+	const partTwoAnswer = day01Input
 		.reduce(
 			(acc, list) => {
 				const listTotal = list.reduce((acc, item) => {
@@ -37,4 +37,4 @@ export const day1: Day = () => {
 		}, 0);
 
 	return { partOneAnswer, partTwoAnswer };
-};
+}) as Day;

@@ -1,4 +1,4 @@
-export const day1Input = [
+export const day01Input = [
 	[2832, 2108, 3082, 4328, 6843, 5121, 2869, 1366, 2358, 1680, 4980, 1161],
 	[8026, 2154, 4242, 1023, 2744, 3162, 4093, 1150, 5397, 2738, 5657],
 	[10954, 11208, 8034, 1636, 9430, 9421, 5025],
@@ -249,7 +249,7 @@ export const day1Input = [
 	[9111, 3248, 5761, 8147, 3285, 11468]
 ];
 
-export const day2Input = [
+export const day02Input = [
 	"BX",
 	"AZ",
 	"AY",
@@ -2752,7 +2752,7 @@ export const day2Input = [
 	"BY"
 ];
 
-export const day3Input = [
+export const day03Input = [
 	"gvNbShZZgQfWdQhdPQmggLTFLwmwjFqjVVgM",
 	"CsJnHllcsnnnnJrGRnRwPPLVmFLHLBjFFVHmPT",
 	"JlnCtctJnJDcJlDCRpPrSSQWfphzWZfbZSvfNfbS",
@@ -3055,7 +3055,7 @@ export const day3Input = [
 	"vlSRJrRJvbGGrSSJgWvlScptFmwbmfHHBfsNFmBbfsFm"
 ];
 
-export const day4Input = [
+export const day04Input = [
 	"4-90,1-4",
 	"80-94,80-81",
 	"1-97,96-99",
@@ -4057,3 +4057,45 @@ export const day4Input = [
 	"86-92,85-93",
 	"14-70,13-69"
 ];
+
+export const day05Input = [];
+
+export const day06Input = [];
+
+export const day07Input = [];
+
+export const day08Input = [];
+
+export const day09Input = [];
+
+export const day10Input = [];
+
+export const day11Input = [];
+
+export const day12Input = [];
+
+export const day13Input = [];
+
+export const day14Input = [];
+
+export const day15Input = [];
+
+export const day16Input = [];
+
+export const day17Input = [];
+
+export const day18Input = [];
+
+export const day19Input = [];
+
+export const day20Input = [];
+
+export const day21Input = [];
+
+export const day22Input = [];
+
+export const day23Input = [];
+
+export const day24Input = [];
+
+export const day25Input = [];

@@ -1,12 +1,12 @@
 import { Day } from "../types";
-import { day4Input } from "./input";
+import { day04Input } from "./input";
 
-export const day4: Day = () => {
+export default (() => {
 	const isInRange = (value: number, min: number, max: number) => {
 		return value >= min && value <= max;
 	};
 
-	const { partOneAnswer, partTwoAnswer } = day4Input.reduce(
+	const { partOneAnswer, partTwoAnswer } = day04Input.reduce(
 		(count, rangePair) => {
 			const [leftRange, rightRange] = rangePair.split(",");
 			const [leftRangeMin, leftRangeMax] = leftRange.split("-").map(val => parseInt(val));
@@ -33,4 +33,4 @@ export const day4: Day = () => {
 	);
 
 	return { partOneAnswer, partTwoAnswer };
-};
+}) as Day;
