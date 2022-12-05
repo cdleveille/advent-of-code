@@ -28,22 +28,14 @@ export default (() => {
 
 	const buildStacks = (lines: string[]) => {
 		const charIndexToStackIndex = (charPos: number) => (charPos - 1) / 4;
-		const stacks = [
-			new Stack<string>(),
-			new Stack<string>(),
-			new Stack<string>(),
-			new Stack<string>(),
-			new Stack<string>(),
-			new Stack<string>(),
-			new Stack<string>(),
-			new Stack<string>(),
-			new Stack<string>()
-		];
+		const stacks: Stack<string>[] = [];
 		for (let i = 7; i >= 0; i--) {
 			for (let j = 1; j <= 33; j += 4) {
 				const char = lines[i][j];
 				if (char !== " ") {
-					stacks[charIndexToStackIndex(j)].push(char);
+					const stackIndex = charIndexToStackIndex(j);
+					if (!stacks[stackIndex]) stacks[stackIndex] = new Stack<string>();
+					stacks[stackIndex].push(char);
 				}
 			}
 		}
