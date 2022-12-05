@@ -90,8 +90,10 @@ export default (() => {
 
 	const partTwoRuntime = Runtime.end("partTwo");
 
+	const dayNumber = getDayNumberFromFilename(__filename);
+
 	return {
-		dayNumber: getDayNumberFromFilename(__filename),
+		dayNumber,
 		partOneAnswer,
 		partTwoAnswer,
 		partOneRuntime,
