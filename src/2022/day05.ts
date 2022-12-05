@@ -9,17 +9,11 @@ export default (() => {
 		constructor() {
 			this.items = [];
 		}
-		push(item: T) {
-			this.items.push(item);
+		push(toPush: T | T[]) {
+			this.items = this.items.concat(toPush);
 		}
-		pushMultiple(items: T[]) {
-			this.items = this.items.concat(items);
-		}
-		pop() {
-			return this.items.pop();
-		}
-		popMultiple(numToPop: number) {
-			return this.items.splice(this.items.length - numToPop);
+		pop(toPop?: number) {
+			return this.items.splice(this.items.length - (toPop || 1));
 		}
 		top() {
 			return this.items[this.items.length - 1];
@@ -73,30 +67,34 @@ export default (() => {
 		return moves;
 	};
 
-	const getStackTops = <T>(stacks: Stack<T>[]) => stacks.reduce((tops, stack) => tops + stack.top(), "");
+	const getStackTops = (stacks: Stack<string>[]) => stacks.reduce((tops, stack) => tops + stack.top(), "");
 
 	const lines = InputParser.fileToStringArray("./src/2022/input/day05.txt");
-	const stacksPartOne = buildStacks(lines);
 	const moves = buildMoves(lines);
 
-	moves.map(move => {
-		for (let n = 0; n < move.count; n++) {
-			const toMove = stacksPartOne[move.fromStack].pop();
-			toMove && stacksPartOne[move.toStack].push(toMove);
-		}
-	});
-	const partOneAnswer = getStackTops(stacksPartOne);
+	const partOneAnswer = (() => {
+		const stacksPartOne = buildStacks(lines);
+		moves.map(move => {
+			for (let n = 0; n < move.count; n++) {
+				const toMove = stacksPartOne[move.fromStack].pop();
+				toMove && stacksPartOne[move.toStack].push(toMove);
+			}
+		});
+		return getStackTops(stacksPartOne);
+	})();
 
 	const partOneRuntime = Runtime.end("partOne");
 
 	Runtime.start("partTwo");
 
-	const stacksPartTwo = buildStacks(lines);
-	moves.map(move => {
-		const toMove = stacksPartTwo[move.fromStack].popMultiple(move.count);
-		stacksPartTwo[move.toStack].pushMultiple(toMove);
-	});
-	const partTwoAnswer = getStackTops(stacksPartTwo);
+	const partTwoAnswer = (() => {
+		const stacksPartTwo = buildStacks(lines);
+		moves.map(move => {
+			const toMove = stacksPartTwo[move.fromStack].pop(move.count);
+			stacksPartTwo[move.toStack].push(toMove);
+		});
+		return getStackTops(stacksPartTwo);
+	})();
 
 	const partTwoRuntime = Runtime.end("partTwo");
 
