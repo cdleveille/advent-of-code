@@ -22,3 +22,6 @@ jobs:
 
       - name: lint project
         run: yarn lint
+
+      - name: build project
+        run: yarn build
