@@ -14,7 +14,7 @@ export default (() => {
 			this.items.push(item);
 		}
 		pushMultiple(items: T[]) {
-			items.map(item => this.items.push(item));
+			this.items = this.items.concat(items);
 		}
 		pop() {
 			return this.items.pop();
