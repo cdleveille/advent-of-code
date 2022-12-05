@@ -1,7 +1,9 @@
 import fs from "fs";
 import { performance } from "perf_hooks";
 
-export const isValidAnswer = (answer: { partOneAnswer: any; partTwoAnswer: any }) => {
+import { Answer } from "./types";
+
+export const isValidAnswer = (answer: { partOneAnswer: Answer; partTwoAnswer: Answer }) => {
 	return (
 		answer.partOneAnswer != null ||
 		answer.partTwoAnswer != null ||
@@ -13,6 +15,12 @@ export const isValidAnswer = (answer: { partOneAnswer: any; partTwoAnswer: any }
 export const getFolderName = (fullPath: string) => {
 	const parts = fullPath.split("\\");
 	return parts[parts.length - 2];
+};
+
+export const getDayNumberFromFilename = (fullPath: string) => {
+	const parts = fullPath.split("\\");
+	const filename = parts[parts.length - 1].split(".")[0];
+	return parseInt(filename.slice(3));
 };
 
 export const Runtime = {

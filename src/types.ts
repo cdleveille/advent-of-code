@@ -1,8 +1,11 @@
 export type Day = () => IDay;
 
+export type Answer = number | string | null | undefined;
+
 export interface IDay {
-	partOneAnswer: number | string | null;
-	partTwoAnswer: number | string | null;
+	dayNumber: number;
+	partOneAnswer: Answer;
+	partTwoAnswer: Answer;
 	partOneRuntime: number;
 	partTwoRuntime: number;
 }

@@ -1,5 +1,5 @@
 import { Day } from "../types";
-import { Runtime } from "../util";
+import { getDayNumberFromFilename, Runtime } from "../util";
 
 export default (() => {
 	Runtime.start("partOne");
@@ -10,5 +10,11 @@ export default (() => {
 	// part two
 	const partTwoRuntime = Runtime.end("partTwo");
 
-	return { partOneAnswer: null, partTwoAnswer: null, partOneRuntime, partTwoRuntime };
+	return {
+		dayNumber: getDayNumberFromFilename(__filename),
+		partOneAnswer: null,
+		partTwoAnswer: null,
+		partOneRuntime,
+		partTwoRuntime
+	};
 }) as Day;
