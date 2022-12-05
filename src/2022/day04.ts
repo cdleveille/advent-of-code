@@ -4,7 +4,7 @@ import { day04Input } from "./input";
 
 export default (() => {
 	Runtime.start("partOne");
-	// part 1
+
 	const isInRange = (value: number, min: number, max: number) => {
 		return value >= min && value <= max;
 	};
@@ -25,10 +25,11 @@ export default (() => {
 		},
 		{ partOneAnswer: 0 }
 	);
+
 	const partOneRuntime = Runtime.end("partOne");
 
 	Runtime.start("partTwo");
-	// part 2
+
 	const { partTwoAnswer } = day04Input.reduce(
 		(count, rangePair) => {
 			const [leftRange, rightRange] = rangePair.split(",");
@@ -47,10 +48,13 @@ export default (() => {
 		},
 		{ partTwoAnswer: 0 }
 	);
+
 	const partTwoRuntime = Runtime.end("partTwo");
 
+	const dayNumber = getDayNumberFromFilename(__filename);
+
 	return {
-		dayNumber: getDayNumberFromFilename(__filename),
+		dayNumber,
 		partOneAnswer,
 		partTwoAnswer,
 		partOneRuntime,

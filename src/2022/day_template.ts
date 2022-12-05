@@ -3,15 +3,17 @@ import { getDayNumberFromFilename, Runtime } from "../util";
 
 export default (() => {
 	Runtime.start("partOne");
-	// part one
+
 	const partOneRuntime = Runtime.end("partOne");
 
 	Runtime.start("partTwo");
-	// part two
+
 	const partTwoRuntime = Runtime.end("partTwo");
 
+	const dayNumber = getDayNumberFromFilename(__filename);
+
 	return {
-		dayNumber: getDayNumberFromFilename(__filename),
+		dayNumber,
 		partOneAnswer: null,
 		partTwoAnswer: null,
 		partOneRuntime,

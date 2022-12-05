@@ -4,7 +4,7 @@ import { day02Input } from "./input";
 
 export default (() => {
 	Runtime.start("partOne");
-	// part 1
+
 	const points: Record<string, number> = {
 		win: 6,
 		draw: 3,
@@ -32,10 +32,11 @@ export default (() => {
 	const partOneAnswer = day02Input.reduce((total, game) => {
 		return total + gameResultPart1[game] + yourMovePart1[game[1]];
 	}, 0);
+
 	const partOneRuntime = Runtime.end("partOne");
 
 	Runtime.start("partTwo");
-	// part 2
+
 	const gameResultPart2: Record<string, number> = {
 		AX: points.loss,
 		AY: points.draw,
@@ -61,10 +62,13 @@ export default (() => {
 	const partTwoAnswer = day02Input.reduce((total, game) => {
 		return total + gameResultPart2[game] + yourMovePart2[game];
 	}, 0);
+
 	const partTwoRuntime = Runtime.end("partTwo");
 
+	const dayNumber = getDayNumberFromFilename(__filename);
+
 	return {
-		dayNumber: getDayNumberFromFilename(__filename),
+		dayNumber,
 		partOneAnswer,
 		partTwoAnswer,
 		partOneRuntime,

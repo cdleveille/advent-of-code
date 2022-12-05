@@ -3,7 +3,6 @@ import { getDayNumberFromFilename, InputParser, Runtime } from "../util";
 
 export default (() => {
 	Runtime.start("partOne");
-	// part one
 
 	class Stack<T> {
 		items: T[];
@@ -86,20 +85,19 @@ export default (() => {
 			toMove && stacksPartOne[move.toStack].push(toMove);
 		}
 	});
-
 	const partOneAnswer = getStackTops(stacksPartOne);
+
 	const partOneRuntime = Runtime.end("partOne");
 
 	Runtime.start("partTwo");
-	// part two
 
 	const stacksPartTwo = buildStacks(lines);
 	moves.map(move => {
 		const toMove = stacksPartTwo[move.fromStack].popMultiple(move.count);
 		stacksPartTwo[move.toStack].pushMultiple(toMove);
 	});
-
 	const partTwoAnswer = getStackTops(stacksPartTwo);
+
 	const partTwoRuntime = Runtime.end("partTwo");
 
 	return {

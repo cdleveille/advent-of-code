@@ -4,7 +4,7 @@ import { day01Input } from "./input";
 
 export default (() => {
 	Runtime.start("partOne");
-	// part 1
+
 	const partOneAnswer = day01Input.reduce((acc, list) => {
 		const listTotal = list.reduce((acc, item) => {
 			return acc + item;
@@ -12,10 +12,11 @@ export default (() => {
 		if (listTotal > acc) acc = listTotal;
 		return acc;
 	}, 0);
+
 	const partOneRuntime = Runtime.end("partOne");
 
 	Runtime.start("partTwo");
-	// part 2
+
 	const partTwoAnswer = day01Input
 		.reduce(
 			(acc, list) => {
@@ -39,10 +40,13 @@ export default (() => {
 		.reduce((acc, total) => {
 			return acc + total;
 		}, 0);
+
 	const partTwoRuntime = Runtime.end("partTwo");
 
+	const dayNumber = getDayNumberFromFilename(__filename);
+
 	return {
-		dayNumber: getDayNumberFromFilename(__filename),
+		dayNumber,
 		partOneAnswer,
 		partTwoAnswer,
 		partOneRuntime,
