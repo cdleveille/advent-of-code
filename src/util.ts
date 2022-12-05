@@ -1,3 +1,4 @@
+import fs from "fs";
 import { performance } from "perf_hooks";
 
 export const isValidAnswer = (answer: { partOneAnswer: any; partTwoAnswer: any }) => {
@@ -17,4 +18,8 @@ export const getFolderName = (fullPath: string) => {
 export const Runtime = {
 	start: (label: string) => performance.mark(label),
 	end: (label: string) => Math.round(performance.measure(`${label}RunTime`, label).duration * 100) / 100
+};
+
+export const InputParser = {
+	fileToStringArray: (filePath: string) => fs.readFileSync(filePath, { encoding: "utf8", flag: "r" }).split(/\r?\n/)
 };
