@@ -1,9 +1,9 @@
 import fs from "fs";
 import { performance } from "perf_hooks";
 
-import { Answer } from "./types";
+import { IDay } from "./types";
 
-export const isValidAnswer = (answer: { partOneAnswer: Answer; partTwoAnswer: Answer }) => {
+export const isValidAnswer = (answer: Partial<IDay>) => {
 	return (
 		answer.partOneAnswer != null ||
 		answer.partTwoAnswer != null ||
